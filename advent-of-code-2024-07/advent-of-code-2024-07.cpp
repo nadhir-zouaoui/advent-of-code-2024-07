@@ -5,7 +5,7 @@
 #include <string>
 #include <fstream>
 
-bool isValid(std::string line, int test, int res) {
+bool isValid(std::string line, long long int test, long long int res) {
     if (line=="")
     {
         if (res==test)
@@ -14,7 +14,7 @@ bool isValid(std::string line, int test, int res) {
         }
         return false;
     } 
-    int nextInt= stoll(line.substr(0, line.find(' ')));
+    long long int nextInt= stoll(line.substr(0, line.find(' ')));
     if (line.find(' ')!= std::string::npos)
     {
         line = line.substr(line.find(' ') + 1);
@@ -32,12 +32,12 @@ int main()
         std::cout << "failed to open" << std::endl;
         return 1;
     }
-    int s = 0;
+    long long int s = 0;
     std::string line;
     while (getline(file, line)) {
-        int res = stoll(line.substr(0, line.find(':')));
+        long long int res = stoll(line.substr(0, line.find(':')));
         line = line.substr(line.find(' ') + 1);
-        int test = stoll(line.substr(0, line.find(' ')));
+        long long int test = stoll(line.substr(0, line.find(' ')));
         line = line.substr(line.find(' ') + 1);
         if (isValid(line, test, res)) {
             s += res;
