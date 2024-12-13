@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-
 bool isValid(std::string line, long long int test, long long int res) {
     if (line=="")
     {
@@ -22,7 +21,9 @@ bool isValid(std::string line, long long int test, long long int res) {
     else {
         line = "";
     }
-    return isValid(line, test * nextInt, res) || isValid(line, test + nextInt, res);
+    std::string a = std::to_string(test);
+    std::string b = std::to_string(nextInt);
+    return isValid(line, test * nextInt, res) || isValid(line, test + nextInt, res) || isValid(line, stoll(a+b), res);
 }
 
 int main()
